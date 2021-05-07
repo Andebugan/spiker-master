@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrapScript : MonoBehaviour
 {
+    /*
     float origScale = 60.0f;
     float currScale = 0.0f;
     public float scaleVar = 1.0f;
@@ -64,4 +65,5 @@ public class TrapScript : MonoBehaviour
         }
         TrapPref.transform.localScale = new Vector3(currScale, currScale, currScale);
     }
+    */
 }

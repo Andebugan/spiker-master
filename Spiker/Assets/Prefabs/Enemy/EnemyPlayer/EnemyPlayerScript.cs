@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyPlayerScript : MonoBehaviour
 {
+    /*
     Rigidbody rb;
 
     public PlayerSystem playerSystem;
@@ -68,4 +69,5 @@ public class EnemyPlayerScript : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Range);
     }
+    */
 }

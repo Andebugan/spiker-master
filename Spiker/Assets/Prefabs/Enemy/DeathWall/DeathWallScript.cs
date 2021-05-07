@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathWallScript : MonoBehaviour
 {
+    /*
     PlayerSystem playerSystem; 
     GameObject player;
 
@@ -16,15 +17,7 @@ public class DeathWallScript : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player")
-        {
-            if (playerSystem.shield == false && playerSystem.Dead != true)
-            {
                 playerSystem.Dead = true;
-            }
-            else
-            {
-                playerSystem.shield = false;
-            }
-        }
     }
+    */
 }

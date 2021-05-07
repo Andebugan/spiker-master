@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
+    /*
     public GameObject[] images;
     public float moveTime;
     public Vector2[] movePos;
@@ -99,4 +100,5 @@ public class MainMenuScript : MonoBehaviour
         LeanTween.move(images[2].GetComponent<RectTransform>(), movePos[6], moveTime);
         LeanTween.move(images[3].GetComponent<RectTransform>(), movePos[7], moveTime);
     }
+    */
 }

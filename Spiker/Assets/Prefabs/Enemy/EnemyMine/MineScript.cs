@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MineScript : MonoBehaviour
 {
+    /*
     public float Range;
     public float KillRange;
     Transform target;
@@ -122,4 +123,5 @@ public class MineScript : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, Range);
         Gizmos.DrawWireSphere(transform.position, KillRange);
     }
+    */
 }

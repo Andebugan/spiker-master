@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserEffect : MonoBehaviour
 {
+    /*
     //Tweaks
     [ColorUsageAttribute(true,true)]
     public Color beamColor;
@@ -125,4 +126,5 @@ public class LaserEffect : MonoBehaviour
             }
         }
     }
+    */
 }

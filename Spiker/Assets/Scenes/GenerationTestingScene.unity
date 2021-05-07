@@ -2086,7 +2086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17, y: 626}
+  m_AnchoredPosition: {x: 31, y: 626}
   m_SizeDelta: {x: 1233.5854, y: 518.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013591567
@@ -2403,8 +2403,8 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: -1100, y: 0}
   - {x: 1100, y: 0}
-  - {x: 1100, y: 0}
-  - {x: -1100, y: 0}
+  - {x: -260, y: 0}
+  - {x: 260, y: 0}
   DeathMenu:
   - {fileID: 1790188564}
   - {fileID: 2064457678}
@@ -3870,7 +3870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: 626}
+  m_AnchoredPosition: {x: -57, y: 626}
   m_SizeDelta: {x: 1233.5854, y: 518.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009131608
