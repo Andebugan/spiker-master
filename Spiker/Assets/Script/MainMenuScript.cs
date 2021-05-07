@@ -8,6 +8,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject[] images;
     public float moveTime;
     public Vector2[] movePos;
+
     PlayerSystem playerSystem;
     PlayerController playerController;
 
@@ -87,11 +88,15 @@ public class MainMenuScript : MonoBehaviour
     {
         LeanTween.move(images[0].GetComponent<RectTransform>(), movePos[0], moveTime);
         LeanTween.move(images[1].GetComponent<RectTransform>(), movePos[1], moveTime);
+        LeanTween.move(images[2].GetComponent<RectTransform>(), movePos[4], moveTime);
+        LeanTween.move(images[3].GetComponent<RectTransform>(), movePos[5], moveTime);
     }
 
     public void CloseGameField()
     {
         LeanTween.move(images[0].GetComponent<RectTransform>(), movePos[2], moveTime);
         LeanTween.move(images[1].GetComponent<RectTransform>(), movePos[3], moveTime);
+        LeanTween.move(images[2].GetComponent<RectTransform>(), movePos[6], moveTime);
+        LeanTween.move(images[3].GetComponent<RectTransform>(), movePos[7], moveTime);
     }
 }
