@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject playerPrefab;
+    private GameObject playerObject;
     private Player player;
+    private CameraController cameraController;
     public Vector3 spawnCoords = new Vector3(0.0f, 0.0f, 0.0f);
 
     void Start()
     {
-        Instantiate(playerPrefab, spawnCoords, Quaternion.identity);
-        player = playerPrefab.GetComponent<Player>();
+        cameraController = this.GetComponent<CameraController>();
+        playerObject = Instantiate(playerPrefab, spawnCoords, Quaternion.identity);
+        player = playerObject.GetComponent<Player>();
         player.Init();
         Spawn();
     }
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         player.transform.position = spawnCoords;
         player.set();
+        cameraController.CameraInit();
     }
 
     public void Ressurect()
@@ -30,5 +34,15 @@ public class PlayerController : MonoBehaviour
     public void Kill()
     {
         player.kill();
+    }
+
+    public Transform GetPlayerTransform()
+    {
+        return playerObject.transform;
+    }
+
+    public Player GetPlayer()
+    {
+        return player;
     }
 }

@@ -57,7 +57,6 @@ public class PlayerMovementSystem : MonoBehaviour
         else
             GetComponent<Rigidbody>().velocity = push;
     }
-
     void Update()
     {
         GetMousePosition();

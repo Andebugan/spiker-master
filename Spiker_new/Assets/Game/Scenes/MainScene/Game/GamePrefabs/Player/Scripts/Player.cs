@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
    // Init params
     public void Init()
     {
-        Debug.Log(collectables.Count);
         movementSystem = GetComponent<PlayerMovementSystem>();
         playerRigidbody = GetComponent<Rigidbody>();
         SetActive(false);
