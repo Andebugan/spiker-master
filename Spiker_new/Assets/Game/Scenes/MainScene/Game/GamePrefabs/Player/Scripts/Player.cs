@@ -8,8 +8,21 @@ public class Player : MonoBehaviour
     protected bool visible = false;
     protected bool alive = true;
 
-    protected List<Collectable> collectables;
+    protected List<Collectable> collectables = new List<Collectable>();
+    private PlayerMovementSystem movementSystem;
+    private Rigidbody playerRigidbody;
 
+   // Init params
+    public void Init()
+    {
+        Debug.Log(collectables.Count);
+        movementSystem = GetComponent<PlayerMovementSystem>();
+        playerRigidbody = GetComponent<Rigidbody>();
+        SetActive(false);
+        SetVisible(false);
+        setAlive(true);
+    }
+   
     // Checks if player is active on field
     public bool isActive()
     {
@@ -36,6 +49,16 @@ public class Player : MonoBehaviour
     public void SetActive(bool activeParam)
     {
         active = activeParam;
+        if (active)
+        {
+            movementSystem.enabled = true;
+            playerRigidbody.velocity = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            movementSystem.enabled = false;
+            playerRigidbody.velocity = new Vector3(0, 0, 0);
+        }
     }
 
     public void setAlive(bool aliveParam)
@@ -57,36 +80,58 @@ public class Player : MonoBehaviour
     // Adds collectable if there is none in list with it's name
     public void AddCollectable(Collectable collectable)
     {
-        foreach (Collectable col in collectables)
+        bool repeat = false;
+        if (collectables.Count != 0)
         {
-            if (col.GetItemName() == collectable.GetItemName())
-                break;
-            else
+            for (int i = 0; i < collectables.Count; i++)
+            {
+                if (collectables[i].GetItemName() == collectable.GetItemName())
+                {
+                    Destroy(collectable.gameObject);
+                    repeat = true;
+                }
+            }
+            if (!repeat)
             {
                 collectable.PickUp();
                 collectables.Add(collectable);
             }
+        }
+        else
+        {
+            collectable.PickUp();
+            collectables.Add(collectable);
         }
     }
 
     // Removes collectables with specified name
     public void RemoveCollectable(string name)
     {
-        foreach (Collectable col in collectables)
+        for (int i = 0; i < collectables.Count; i++)
         {
-            if (col.GetItemName() == name)
+            if (collectables[i].GetItemName() == name)
             {
-                collectables.Remove(col);
+                Destroy(collectables[i].gameObject);
             }
         }
     }
 
-    // Init params
-    void Start()
+    void OnTriggerEnter(Collider collider)
     {
-        SetActive(false);
-        SetVisible(false);
-        setAlive(true);
+        Collectable collectable = collider.gameObject.GetComponent<Collectable>();
+        AddCollectable(collectable);
+    }
+
+    public void ClearCollectables()
+    {
+        if (collectables.Count != 0)
+        {
+            for (int i = 0; i < collectables.Count; i++)
+            {
+                Destroy(collectables[i].gameObject);
+            }
+        }
+        collectables.Clear();
     }
 
     // Sets paremeters to the starting values
@@ -99,8 +144,7 @@ public class Player : MonoBehaviour
 
     public void kill()
     {
-        SetActive(false);
-        SetVisible(false);
         setAlive(false);
+        ClearCollectables();
     }
 }

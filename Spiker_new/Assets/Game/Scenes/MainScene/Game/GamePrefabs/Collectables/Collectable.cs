@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    protected int amount = 0;
+    protected int amount = 1;
     protected bool onScene = true;
 
-    protected string itemName = "default name";
+    public string itemName = "default name";
 
     // Check if item is on active scene
     public bool IsOnScene()
@@ -19,7 +19,8 @@ public class Collectable : MonoBehaviour
     public void PickUp()
     {
         onScene = false;
-        this.gameObject.SetActive(false);
+        this.gameObject.GetComponent<Renderer>().enabled = false;
+        this.gameObject.GetComponent<Collider>().enabled = false;
     }
 
     // Check if item is expired
@@ -41,10 +42,5 @@ public class Collectable : MonoBehaviour
     public void SetItemName(string name)
     {
         itemName = name;
-    }
-
-    void Start()
-    {
-        CheckExpire();
     }
 }
