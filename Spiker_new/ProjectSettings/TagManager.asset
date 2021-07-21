@@ -8,6 +8,7 @@ TagManager:
   - ArrowSprite
   - Collectable
   - PlayerController
+  - SpawnController
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Game/Scenes/MainScene/Game/GamePrefabs/Level/LevelObstacles/LevelGenerationTestingScene.unity
+- path: Assets/Scenes/MainScene/Game/GamePrefabs/Level/LevelObstacles/LevelGenerationTestingScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
