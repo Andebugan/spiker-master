@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+public class Collectable : LevelObject
 {
     protected int amount = 1;
     protected bool onScene = true;
 
     public string itemName = "default name";
 
+    void Start()
+    {
+        this.gameObject.GetComponent<Collider>().isTrigger = true;
+    }
     // Check if item is on active scene
     public bool IsOnScene()
     {
@@ -26,11 +30,12 @@ public class Collectable : MonoBehaviour
     // Check if item is expired
     public bool CheckExpire()
     {
-        if (amount == 0)
-        {
-            Destroy(this.gameObject);
-        }
         return amount == 0;
+    }
+
+    public void Use()
+    {
+        amount -= 1;
     }
 
     // Get item name

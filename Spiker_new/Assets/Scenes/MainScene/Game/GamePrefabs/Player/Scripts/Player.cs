@@ -86,15 +86,13 @@ public class Player : MonoBehaviour
             {
                 if (collectables[i].GetItemName() == collectable.GetItemName())
                 {
-                    Destroy(collectable.gameObject);
                     repeat = true;
                 }
             }
+            
             if (!repeat)
-            {
-                collectable.PickUp();
                 collectables.Add(collectable);
-            }
+            collectable.PickUp();
         }
         else
         {
@@ -110,7 +108,7 @@ public class Player : MonoBehaviour
         {
             if (collectables[i].GetItemName() == name)
             {
-                Destroy(collectables[i].gameObject);
+                collectables.Remove(collectables[i]);
             }
         }
     }

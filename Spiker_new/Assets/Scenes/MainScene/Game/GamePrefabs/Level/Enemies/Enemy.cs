@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : LevelObject
 {
-    public float hardLevel = 1.0f;
     protected bool alive;
     protected bool active;
 

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ActiveEnemy : Enemy
 {
-    public float SpawnRadius = 1.0f;
+    
 }

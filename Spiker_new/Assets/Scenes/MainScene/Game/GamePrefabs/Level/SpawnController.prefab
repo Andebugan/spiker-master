@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2586560571997431592}
   - component: {fileID: 1788456721773962949}
+  - component: {fileID: 1164560467106688036}
   m_Layer: 0
   m_Name: SpawnController
-  m_TagString: Untagged
+  m_TagString: SpawnController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,3 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970515dfc8f8a584f9f7f20eb9b72fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  halfCorridorWidth: 15
+--- !u!114 &1164560467106688036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363236328209205575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b67b1f8992ded34499e8236841fb0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generationStep: 1
+  difficultyStep: 100
+  generationSpawnOffcet: 15
+  generationDestroyOffcet: 10
