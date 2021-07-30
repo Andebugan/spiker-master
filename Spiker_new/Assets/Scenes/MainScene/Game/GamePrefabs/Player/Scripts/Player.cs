@@ -115,8 +115,11 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Collectable collectable = collider.gameObject.GetComponent<Collectable>();
-        AddCollectable(collectable);
+        if (collider.tag == "Collectable")
+        {    
+            Collectable collectable = collider.gameObject.GetComponent<Collectable>();
+            AddCollectable(collectable);
+        }
     }
 
     public void ClearCollectables()

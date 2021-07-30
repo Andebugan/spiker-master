@@ -375,6 +375,19 @@ MonoBehaviour:
   leftWallPrefab: {fileID: 2687532073994782857, guid: 87f07f13c5eb1334391bc9e0ba5f797f, type: 3}
   rightWallPrefab: {fileID: 2687532073994782857, guid: 87f07f13c5eb1334391bc9e0ba5f797f, type: 3}
   wallZOffcet: 0
+--- !u!114 &1837501262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837501260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7c00acfef7a3449956603248efedb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathWallFragment: {fileID: 5930128842205479187, guid: 50f97e36a0189a34aa85cfe8605404ed, type: 3}
 --- !u!1001 &2710549706731755792
 PrefabInstance:
   m_ObjectHideFlags: 0
