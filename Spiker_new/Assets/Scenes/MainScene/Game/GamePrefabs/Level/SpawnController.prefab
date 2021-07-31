@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1363236328209205575
+--- !u!1 &7511903321318278490
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2586560571997431592}
-  - component: {fileID: 1788456721773962949}
-  - component: {fileID: 1164560467106688036}
+  - component: {fileID: 6427159280723536693}
+  - component: {fileID: 7063134720983214808}
+  - component: {fileID: 7709544506614014009}
+  - component: {fileID: 6866119069378977344}
+  - component: {fileID: 6866119069378977347}
   m_Layer: 0
   m_Name: SpawnController
   m_TagString: SpawnController
@@ -18,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2586560571997431592
+--- !u!4 &6427159280723536693
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363236328209205575}
+  m_GameObject: {fileID: 7511903321318278490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,26 +34,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1788456721773962949
+--- !u!114 &7063134720983214808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363236328209205575}
+  m_GameObject: {fileID: 7511903321318278490}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 970515dfc8f8a584f9f7f20eb9b72fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   halfCorridorWidth: 15
---- !u!114 &1164560467106688036
+--- !u!114 &7709544506614014009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363236328209205575}
+  m_GameObject: {fileID: 7511903321318278490}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b67b1f8992ded34499e8236841fb0c7, type: 3}
@@ -60,4 +62,36 @@ MonoBehaviour:
   generationStep: 1
   difficultyStep: 100
   generationSpawnOffcet: 15
-  generationDestroyOffcet: 10
+  generationDestroyOffcet: 15
+  generating: 1
+  hullChance: 20
+  hull: {fileID: 2359427874437144533, guid: ee7e875186c297146bd9ae1285ab7123, type: 3}
+--- !u!114 &6866119069378977344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511903321318278490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2545fbfe905f5c458fbf8cd76aec7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftWallPrefab: {fileID: 2687532073994782857, guid: 87f07f13c5eb1334391bc9e0ba5f797f, type: 3}
+  rightWallPrefab: {fileID: 2687532073994782857, guid: 87f07f13c5eb1334391bc9e0ba5f797f, type: 3}
+  wallZOffcet: 0
+--- !u!114 &6866119069378977347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511903321318278490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7c00acfef7a3449956603248efedb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathWallFragment: {fileID: 5930128842205479187, guid: 50f97e36a0189a34aa85cfe8605404ed, type: 3}
+  deathWallOffcet: 0

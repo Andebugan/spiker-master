@@ -35,6 +35,15 @@ public class SpawnController : MonoBehaviour
         currGenPosition = new Vector3 (-halfCorridorWidth + 1.0f, 0, generationSpawnOffcet);
     }
 
+    public void ClearGeneratedObjects()
+    {
+        for (int i = 0; i < generatedLevelObjects.Count; i++)
+        {
+            Destroy(generatedLevelObjects[i]);
+        }
+        generatedLevelObjects.Clear();
+    }
+
     void FormLevelObjectTypesList()
     {
         foreach (LevelObject levelObject in levelObjectPrefabs)

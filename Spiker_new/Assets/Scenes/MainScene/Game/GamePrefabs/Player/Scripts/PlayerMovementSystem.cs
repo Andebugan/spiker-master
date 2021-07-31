@@ -13,6 +13,7 @@ public class PlayerMovementSystem : MonoBehaviour
     private float shootPower;
     public float borderVal = 1.0f;
     public float shootVar = 1.0f;
+    public bool active = true;
 
     private Vector3 shootDirection;
 
@@ -31,6 +32,8 @@ public class PlayerMovementSystem : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (!active)
+            return;
         currentDistance = Vector3.Distance(mousePoint, transform.position);
         if(currentDistance <= maxDistance)
             safeSpace = currentDistance;
@@ -50,6 +53,8 @@ public class PlayerMovementSystem : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (!active)
+            return;
         arrow.SetEnabled(false);
         Vector3 push = shootDirection * shootPower;
         if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) < borderVal && Mathf.Abs(GetComponent<Rigidbody>().velocity.y) < borderVal)
@@ -59,6 +64,8 @@ public class PlayerMovementSystem : MonoBehaviour
     }
     void Update()
     {
+        if (!active)
+            return;
         GetMousePosition();
     }
 }

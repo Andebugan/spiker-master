@@ -67,6 +67,11 @@ public class Player : MonoBehaviour
         {
             SetVisible(false);
             SetActive(false);
+            movementSystem.active = false;
+        }
+        else
+        {
+            movementSystem.active = true;
         }
     }
 
