@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7709544506614014009}
   - component: {fileID: 6866119069378977344}
   - component: {fileID: 6866119069378977347}
+  - component: {fileID: 8621562446580263187}
   m_Layer: 0
   m_Name: SpawnController
   m_TagString: SpawnController
@@ -95,3 +96,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathWallFragment: {fileID: 5930128842205479187, guid: 50f97e36a0189a34aa85cfe8605404ed, type: 3}
   deathWallOffcet: 0
+--- !u!114 &8621562446580263187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511903321318278490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075fb59690058fe458e5d4fb2785f597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

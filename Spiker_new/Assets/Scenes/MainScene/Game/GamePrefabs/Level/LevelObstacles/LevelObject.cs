@@ -18,4 +18,21 @@ public class LevelObject : MonoBehaviour
         else
             return false;
     }
+    
+    public bool CheckHullChances(int hullChance)
+    {
+        int hullChanceValue = 0;
+        hullChanceValue = random.Next(0, 100);
+        if (hullChanceValue > hullChance && CheckSpawnChance())
+            return true;
+        return false;
+    }
+    public bool CheckDifficulty(float difficulty)
+    {
+        if (difficulty < difficultyLevel)
+        {
+            return false;
+        }
+        return true;
+    }
 }

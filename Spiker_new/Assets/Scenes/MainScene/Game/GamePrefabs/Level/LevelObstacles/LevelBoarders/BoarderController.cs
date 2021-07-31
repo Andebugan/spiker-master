@@ -58,15 +58,6 @@ public class BoarderController : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Vector3 wallUpperPosition = new Vector3(transform.position.x, transform.position.y, upperWallsBoarder);
-        Vector3 wallLowerPosition = new Vector3(transform.position.x, transform.position.y, lowerWallsBoarder);
-        Gizmos.DrawSphere(wallUpperPosition, 1);
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(wallLowerPosition, 1);
-    }
-
     public float GetLowerBoarder()
     {
         return lowerWallsBoarder;

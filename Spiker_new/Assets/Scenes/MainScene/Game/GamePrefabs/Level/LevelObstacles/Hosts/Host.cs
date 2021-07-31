@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Host : LevelObject
 {
-    protected PassiveEnemy[] passiveEnemyList;
-    public List<GameObject> enemySpawnPoints;
-    protected PassiveEnemy[] enemyList;
+    protected SpawnPoint[] enemySpawnPoints;
+    protected List<Enemy> enemyList = new List<Enemy>();
+    protected HostBuilder hostBuilder;
 
     void Start()
     {
-        passiveEnemyList = Resources.LoadAll<PassiveEnemy>("EnemyPrefabs");
+        enemySpawnPoints = GetComponentsInChildren<SpawnPoint>();
+        hostBuilder = GameObject.FindGameObjectWithTag("SpawnController").GetComponent<HostBuilder>();
+        hostBuilder.GenerateHost(this);
     }
-    public void SetPassiveEnemyList(PassiveEnemy[] enemies)
+
+    public void AddEnemy(Enemy enemy)
     {
-        enemyList = enemies;
+        enemyList.Add(enemy);
     }
-    public void AssembleHostObject()
+
+    public SpawnPoint[] GetSpawnPointList()
     {
-        Debug.Log("Host object");
+        return enemySpawnPoints;
     }
 }

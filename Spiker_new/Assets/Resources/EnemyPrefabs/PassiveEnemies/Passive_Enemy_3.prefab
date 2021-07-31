@@ -216,7 +216,7 @@ Transform:
   m_GameObject: {fileID: 5251100923109458672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 5251100921977443617}
   - {fileID: 5251100922390110378}
@@ -235,5 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb2924653b5e544d80db6609bdcf072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnRadius: 1
+  spawnRadius: 1
   difficultyLevel: 1
+  spawnChance: 30

@@ -74,15 +74,6 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    protected bool CheckHullChances(LevelObject levelObject)
-    {
-        int hullChanceValue = 0;
-        hullChanceValue = random.Next(0, 100);
-        if (hullChanceValue > hullChance && levelObject.CheckSpawnChance())
-            return true;
-        return false;
-    }
-
     protected bool CheckSpawnConditions(Vector3 pos, LevelObject levelObject)
     {
         for (int i = 0; i < generatedLevelObjects.Count; i++)
@@ -98,9 +89,9 @@ public class SpawnController : MonoBehaviour
 
     protected bool SpawnObject(Vector3 pos, LevelObject levelObject)
     {
-        if (CheckSpawnConditions(pos, levelObject))
+        if (CheckSpawnConditions(pos, levelObject) && levelObject.CheckDifficulty(difficulty))
         {
-            if (CheckHullChances(levelObject))
+            if (levelObject.CheckHullChances(hullChance))
             {
                 generatedLevelObjects.Add(Instantiate(levelObject.gameObject, pos, Quaternion.identity));
             }
@@ -144,5 +135,10 @@ public class SpawnController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public float GetDifficulty()
+    {
+        return difficulty;
     }
 }
