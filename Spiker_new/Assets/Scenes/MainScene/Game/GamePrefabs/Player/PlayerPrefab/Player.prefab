@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5434792721027470885}
   - component: {fileID: 5434792721027470887}
   - component: {fileID: 5434792721027470880}
+  - component: {fileID: 4836371095488958729}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -208,6 +209,7 @@ MonoBehaviour:
   maxDistance: 1.5
   borderVal: 10
   shootVar: 7
+  active: 1
 --- !u!54 &5434792721027470880
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -217,13 +219,27 @@ Rigidbody:
   m_GameObject: {fileID: 5434792721027470904}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 1.5
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!136 &4836371095488958729
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434792721027470904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 40
+  m_Direction: 1
+  m_Center: {x: 0, y: 50, z: 0}
 --- !u!1 &5434792721052763736
 GameObject:
   m_ObjectHideFlags: 0

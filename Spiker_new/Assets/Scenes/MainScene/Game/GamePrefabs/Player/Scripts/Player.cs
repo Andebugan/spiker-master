@@ -133,7 +133,8 @@ public class Player : MonoBehaviour
         {
             for (int i = 0; i < collectables.Count; i++)
             {
-                Destroy(collectables[i].gameObject);
+                if (collectables[i] != null)
+                    Destroy(collectables[i].gameObject);
             }
         }
         collectables.Clear();

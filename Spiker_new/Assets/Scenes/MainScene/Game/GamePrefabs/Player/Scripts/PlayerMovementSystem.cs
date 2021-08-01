@@ -52,7 +52,7 @@ public class PlayerMovementSystem : MonoBehaviour
     }
 
     private void OnMouseUp()
-    {
+    {   
         if (!active)
             return;
         arrow.SetEnabled(false);
