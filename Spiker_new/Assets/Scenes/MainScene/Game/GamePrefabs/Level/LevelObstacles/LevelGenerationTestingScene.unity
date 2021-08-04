@@ -411,6 +411,10 @@ PrefabInstance:
       value: SpawnController
       objectReference: {fileID: 0}
     - target: {fileID: 7709544506614014009, guid: 8ea8dbecb49de2c41988082c0d725376, type: 3}
+      propertyPath: generating
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709544506614014009, guid: 8ea8dbecb49de2c41988082c0d725376, type: 3}
       propertyPath: hullChance
       value: 0
       objectReference: {fileID: 0}

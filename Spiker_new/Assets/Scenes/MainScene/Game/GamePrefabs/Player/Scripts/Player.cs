@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    protected bool active = false;
-    protected bool visible = false;
-    protected bool alive = true;
+    public bool active = false;
+    public bool visible = false;
+    public bool alive = true;
 
     protected List<Collectable> collectables = new List<Collectable>();
     private PlayerMovementSystem movementSystem;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : LevelObject
 {
-    protected bool alive;
-    protected bool active;
+    public bool alive;
+    public bool active;
 
     protected PlayerController playerController;
     void Start()
@@ -27,17 +27,18 @@ public class Enemy : LevelObject
         return Mathf.Abs((playerController.GetPlayerTransform().position - transform.position).magnitude);
     }
 
-    private void CheckPlayer()
+    protected void CheckPlayer()
     {
         bool playerActive = playerController.GetPlayer().isActive();
         bool playerAlive = playerController.GetPlayer().isAlive();
+        bool playerVisible = playerController.GetPlayer().isVisible();
 
-        if (!playerActive || !playerAlive)
+        if (!playerActive || !playerAlive || !playerVisible)
         {
             active = false;
         }
 
-        if (playerActive && playerAlive)
+        if (playerActive && playerAlive && playerVisible)
         {
             active = true;
         }

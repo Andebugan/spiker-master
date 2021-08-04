@@ -16,14 +16,21 @@ public class EnemyCircleTrap : PassiveEnemy
         originalScale = InnerCircle.transform.localScale;
         InnerCircle.transform.localScale = new Vector3(0, InnerCircle.transform.localScale.y, 0);
         InnerCircleBottom.transform.localScale = new Vector3(0, InnerCircleBottom.transform.localScale.y, 0);
+        playerController = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
     }
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player")
         {
-            playerIsInside = true;
-            StartTimer();
+            if (playerController.GetPlayer() != null)
+            {
+                if (playerController.GetPlayer().isVisible())
+                {
+                    playerIsInside = true;
+                    StartTimer();
+                }
+            }
         }
     }
 
