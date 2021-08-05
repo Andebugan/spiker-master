@@ -40,6 +40,24 @@ public class BoarderController : MonoBehaviour
         upperWallsBoarder = transform.position.z + wallZOffcet + wallSizeZ / 2;
     }
 
+    public void ResetWalls(float halfCorridorWidth)
+    {
+        float wallSizeZLeft = wallsNew.left.GetComponent<MeshFilter>().sharedMesh.bounds.size.z * leftWallPrefab.transform.localScale.z;
+        float wallSizeZRight = wallsNew.right.GetComponent<MeshFilter>().sharedMesh.bounds.size.z * rightWallPrefab.transform.localScale.z;
+
+        wallSizeZ = Mathf.Max(wallSizeZLeft, wallSizeZRight);
+
+        wallsNew.right.transform.position = transform.position + new Vector3(halfCorridorWidth, 0, wallZOffcet);
+        wallsNew.left.transform.position = transform.position + new Vector3(-halfCorridorWidth, 0, wallZOffcet);
+
+        wallsOld.right.transform.position = transform.position + new Vector3(halfCorridorWidth, 0, wallZOffcet - wallSizeZRight);
+        wallsOld.left.transform.position = transform.position + new Vector3(-halfCorridorWidth, 0, wallZOffcet - wallSizeZLeft);
+
+        wallZPosition = transform.position.z;
+        lowerWallsBoarder = transform.position.z + wallZOffcet - wallSizeZ - wallSizeZ / 2;
+        upperWallsBoarder = transform.position.z + wallZOffcet + wallSizeZ / 2;
+    }
+
     public void UpdateWalls(Vector3 playerPosition)
     {
         if (playerPosition.z > wallZPosition)

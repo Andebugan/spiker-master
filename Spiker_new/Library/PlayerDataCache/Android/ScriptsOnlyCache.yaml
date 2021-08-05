@@ -1,19 +1,27 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - ActiveEnemy
     - ArrowController
     - BoarderController
     - CameraController
+    - CheckParticleCollision
     - Collectable
+    - DeathWallScript
+    - EnemyCircleTrap
+    - EnemyTurret
+    - EnemyWallScript
+    - Fire
     - Host
+    - HostBuilder
+    - KillOnCollision
     - LevelGeneration
     - LevelObject
-    - PassiveEnemy
     - Player
     - PlayerController
     - PlayerMovementSystem
+    - RotateTowardsPlayer
     - SpawnController
+    - SpawnPoint
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -57,6 +65,8 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 11960}
+    - Class: 114
       Script: {instanceID: 11966}
     - Class: 114
       Script: {instanceID: 12086}
@@ -65,34 +75,50 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12350}
-    - Class: 114
       Script: {instanceID: 12452}
     - Class: 114
-      Script: {instanceID: 12652}
+      Script: {instanceID: 12560}
     - Class: 114
-      Script: {instanceID: 12668}
+      Script: {instanceID: 12610}
     - Class: 114
-      Script: {instanceID: 13008}
+      Script: {instanceID: 12656}
     - Class: 114
-      Script: {instanceID: 13230}
+      Script: {instanceID: 12704}
     - Class: 114
-      Script: {instanceID: 13926}
+      Script: {instanceID: 12774}
+    - Class: 114
+      Script: {instanceID: 13016}
+    - Class: 114
+      Script: {instanceID: 13018}
+    - Class: 114
+      Script: {instanceID: 13158}
+    - Class: 114
+      Script: {instanceID: 13242}
+    - Class: 114
+      Script: {instanceID: 13540}
+    - Class: 114
+      Script: {instanceID: 13718}
     - Class: 114
       Script: {instanceID: 13942}
     - Class: 114
       Script: {instanceID: 13950}
+    - Class: 114
+      Script: {instanceID: 13960}
+    - Class: 114
+      Script: {instanceID: 13968}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 134
-      Script: {instanceID: 0}
-    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -139,13 +165,19 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KillOnCollision
+  - hash:
+      serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: d2ba6b1a28a1261b1984ef2b00eb9e59
+      Hash: 141f6b0d6264278aea118b59dbb4c0d0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Host
@@ -253,7 +285,7 @@ ScriptsOnlyBuild:
     className: RectMask2D
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: a6edc4669e50b0430caae3692adeeb62
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -271,7 +303,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 141f6b0d6264278aea118b59dbb4c0d0
+      Hash: 20a0cee0bedafea04f43e084c0011958
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ActiveEnemy
@@ -325,16 +357,34 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 37c08d1cc566003c44f8ef6f7dcd1985
+      Hash: bf2491b715520ebe42bf026e91aa9e65
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyCircleTrap
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnPoint
+  - hash:
+      serializedVersion: 2
+      Hash: 675a4f5352ee887fd2b5ed0ed3d3f9e5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovementSystem
   - hash:
       serializedVersion: 2
-      Hash: 141f6b0d6264278aea118b59dbb4c0d0
+      Hash: 20a0cee0bedafea04f43e084c0011958
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PassiveEnemy
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HostBuilder
   - hash:
       serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
@@ -343,7 +393,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 141f6b0d6264278aea118b59dbb4c0d0
+      Hash: 20a0cee0bedafea04f43e084c0011958
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -359,6 +409,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LeanTween
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CheckParticleCollision
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -391,6 +447,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 3041baba089a45f46ad5a5e851968c15
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyTurret
+  - hash:
+      serializedVersion: 2
       Hash: 021d75d7e82ce20288a33b120a2c990f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -401,6 +463,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 5bddb32bcb848f51c6efb9a0b86ba855
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RotateTowardsPlayer
   - hash:
       serializedVersion: 2
       Hash: f7bb6096199e0cf058d5d69878184cf4
@@ -487,6 +555,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: d7490d374295c44775c7d1fa87669915
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeathWallScript
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -497,6 +571,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: f462100189dcf3731ec66218b217d9ed
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Fire
   - hash:
       serializedVersion: 2
       Hash: a2612813f45d0ced02c3e4bc9dbea8b4
@@ -589,6 +669,12 @@ ScriptsOnlyBuild:
     className: Collectable
   - hash:
       serializedVersion: 2
+      Hash: 20a0cee0bedafea04f43e084c0011958
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyWallScript
+  - hash:
+      serializedVersion: 2
       Hash: db135cfce51375a50fecb044c8f37d20
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -614,4 +700,5 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainScene/Game/GamePrefabs/Level/LevelObstacles/LevelGenerationTestingScene.unity
-  playerPath: D:/UnityProjects/Spiker-master/Spiker_test_1.apk
+  playerPath: "C:/Users/diffu/OneDrive/\u0420\u0430\u0431\u043E\u0447\u0438\u0439
+    \u0441\u0442\u043E\u043B/Spiker_test_1.apk"

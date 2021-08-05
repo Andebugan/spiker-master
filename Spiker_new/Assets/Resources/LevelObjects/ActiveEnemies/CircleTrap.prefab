@@ -211,9 +211,11 @@ MonoBehaviour:
   spawnRadius: 3
   difficultyLevel: 1
   spawnChance: 50
+  alive: 0
+  active: 0
   InnerCircle: {fileID: 378703497292788831}
   InnerCircleBottom: {fileID: 76403552556371142}
-  time: 0.65
+  time: 0.75
 --- !u!136 &378703498183621680
 CapsuleCollider:
   m_ObjectHideFlags: 0

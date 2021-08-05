@@ -26,6 +26,18 @@ public class DeathWallScript : MonoBehaviour
         }
     }
 
+    public void RegenerateWall()
+    {
+        LevelGeneration levelGeneration = this.GetComponent<LevelGeneration>();
+        halfCorridorWidth = levelGeneration.halfCorridorWidth;
+        Vector3 coordinates = this.transform.position + new Vector3 (0, 0, -levelGeneration.GetSpawnController().generationDestroyOffcet);
+
+        for (int i = 0; i < wallList.Count; i++)
+        {
+            wallList[i].transform.position = new Vector3(wallList[i].transform.position.x, 0, coordinates.z);
+        }
+    }
+
     public void UpdateWall()
     {
         LevelGeneration levelGeneration = this.GetComponent<LevelGeneration>();

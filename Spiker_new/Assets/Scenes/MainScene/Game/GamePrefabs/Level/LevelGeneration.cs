@@ -33,11 +33,20 @@ public class LevelGeneration : MonoBehaviour
         spawnController.DestroyExpiredObjects(playerController.GetPlayerTransform().position.z);
         boarderController.UpdateWalls(playerController.GetPlayerTransform().position);
         deathWallScript.UpdateWall();
+
+        if (playerController.GetPlayer().isAlive() == false)
+        {
+            Regenerate();
+        }
     }
 
     public void Regenerate()
     {
-        
+        boarderController.ResetWalls(halfCorridorWidth);
+        spawnController.SetStartGenPosition(halfCorridorWidth);
+        deathWallScript.RegenerateWall();
+        spawnController.ClearGeneratedObjects();
+        playerController.Spawn();
     }
 
     public PlayerController GetPlayerController()

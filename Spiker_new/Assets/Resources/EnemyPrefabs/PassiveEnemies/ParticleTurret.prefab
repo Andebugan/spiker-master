@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firingSystem: {fileID: 731303897653460259}
-  delay: 1
+  delay: 0.01
   deltaT: 0.01
 --- !u!1 &731303896895944050
 GameObject:
@@ -349,7 +349,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 7
+      scalar: 12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
