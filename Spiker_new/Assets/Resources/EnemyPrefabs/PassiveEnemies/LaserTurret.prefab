@@ -14815,7 +14815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRadius: 1
-  difficultyLevel: 1
+  difficultyLevel: 3
   spawnChance: 30
   alive: 1
   active: 1

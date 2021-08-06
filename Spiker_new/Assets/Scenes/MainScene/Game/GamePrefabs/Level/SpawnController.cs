@@ -11,7 +11,7 @@ public class SpawnController : MonoBehaviour
     public float difficultyStep = 100.0f;
     public float generationSpawnOffcet = 15.0f;
     public float generationDestroyOffcet = 10.0f;
-    private float difficulty = 1.0f;
+    protected float difficulty = 1.0f;
     protected System.Random random = new System.Random();
     protected List<List<LevelObject>> spawningObjectsList = new List<List<LevelObject>>();
     protected List<GameObject> generatedLevelObjects = new List<GameObject>();
@@ -22,10 +22,13 @@ public class SpawnController : MonoBehaviour
     public LevelObject hull;
     protected float halfCorridorWidth;
 
+    protected LevelGeneration levelGeneration;
+
     void Start()
     {
         levelObjectPrefabs = Resources.LoadAll<LevelObject>("LevelObjects");
         halfCorridorWidth = this.GetComponent<LevelGeneration>().halfCorridorWidth;
+        levelGeneration = GetComponent<LevelGeneration>();
         FormLevelObjectTypesList();
         FormSpawningObjectsList();
     }
@@ -136,8 +139,17 @@ public class SpawnController : MonoBehaviour
                         Destroy(tempObject);
                     }
                 }
+                else
+                {
+                    generatedLevelObjects.Remove(generatedLevelObjects[i]);
+                }
             }
         }
+    }
+
+    public void UpdateDifficulty()
+    {
+        difficulty = Mathf.CeilToInt(levelGeneration.GetPlayerController().GetPlayerTransform().position.z / difficultyStep);
     }
 
     public float GetDifficulty()

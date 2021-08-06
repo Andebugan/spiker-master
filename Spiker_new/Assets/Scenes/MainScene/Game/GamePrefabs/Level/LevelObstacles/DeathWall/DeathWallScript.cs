@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathWallScript : MonoBehaviour
 {
+    public float deathWallMoveSpeed = 0.1f;
     public GameObject deathWallFragment;
     public float deathWallOffcet;
     protected float halfCorridorWidth;
@@ -49,6 +50,8 @@ public class DeathWallScript : MonoBehaviour
             {
                 wallList[i].transform.position = new Vector3(wallList[i].transform.position.x, wallList[i].transform.position.y, currDestroyOffcet);
             }
+            if (levelGeneration.GetPlayerController().GetPlayer().isAlive())
+                wallList[i].transform.Translate(new Vector3(0, 0, deathWallMoveSpeed) * Time.deltaTime, Space.World);
         }
     }
 }

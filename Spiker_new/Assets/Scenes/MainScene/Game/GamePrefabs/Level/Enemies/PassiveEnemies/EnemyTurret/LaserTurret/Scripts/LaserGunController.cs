@@ -103,7 +103,7 @@ public class LaserGunController : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, enemyTurret.attackRadius))
                 {
-                    if (hit.collider.tag == "Player" && enemyTurret.IsInRange() && enemyTurret.active)
+                    if (hit.collider.tag == "Player" && enemyTurret.active)
                     {
                         enemyTurret.GetPlayerController().Kill();
                     }

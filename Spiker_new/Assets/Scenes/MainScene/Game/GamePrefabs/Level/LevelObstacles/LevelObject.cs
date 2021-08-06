@@ -29,10 +29,10 @@ public class LevelObject : MonoBehaviour
     }
     public bool CheckDifficulty(float difficulty)
     {
-        if (difficulty < difficultyLevel)
+        if (difficulty >= difficultyLevel)
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
