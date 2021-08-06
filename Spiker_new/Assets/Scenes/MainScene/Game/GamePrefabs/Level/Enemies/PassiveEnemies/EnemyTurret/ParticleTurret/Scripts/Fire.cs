@@ -37,7 +37,7 @@ public class Fire : MonoBehaviour
         if (delay == 1.0f)
         {
             firingSystem.Emit(1);
-            delay -= deltaT;
+            delay -= deltaT * Time.deltaTime;
         }
         else
         {

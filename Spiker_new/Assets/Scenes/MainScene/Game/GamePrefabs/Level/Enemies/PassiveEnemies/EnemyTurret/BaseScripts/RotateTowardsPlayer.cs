@@ -23,7 +23,7 @@ public class RotateTowardsPlayer : MonoBehaviour
     {
         if (enemyTurret.IsInRange() && enemyTurret.active)
         {
-            Vector3 dir = enemyTurret.GetPlayerDirection(this.transform.position).normalized;
+            Vector3 dir = enemyTurret.CountPlayerDirection(this.transform.position).normalized;
 
             if (Vector3.Dot(dir, enemyTurret.transform.forward) >= 0)
             {

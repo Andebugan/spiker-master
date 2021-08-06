@@ -7,6 +7,18 @@ public class EnemyTurret : PassiveEnemy
     public float attackRadius = 7.0f;
 
     protected bool inRange = false;
+
+    protected Vector3 playerDir;
+
+    public void SetPlayerDir(Vector3 dir)
+    {
+        playerDir = dir;
+    }
+
+    public Vector3 GetPlayerDir()
+    {
+        return playerDir;
+    }
     
     void Start()
     {
@@ -41,10 +53,11 @@ public class EnemyTurret : PassiveEnemy
         return playerController;
     }
 
-    public Vector3 GetPlayerDirection(Vector3 pos)
+    public Vector3 CountPlayerDirection(Vector3 pos)
     {
         Vector3 playerPos = playerController.GetPlayerTransform().position;
         Vector3 dir = playerPos - pos;
+        playerDir = dir;
         return dir;
     }
 }

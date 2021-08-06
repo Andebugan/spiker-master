@@ -127,11 +127,14 @@ public class SpawnController : MonoBehaviour
         {
             for (int i = 0; i < generatedLevelObjects.Count; i++)
             {
-                if (currPlayerPosZ - generatedLevelObjects[i].transform.position.z > generationDestroyOffcet)
+                if (generatedLevelObjects[i] != null)
                 {
-                    GameObject tempObject = generatedLevelObjects[i];
-                    generatedLevelObjects.Remove(generatedLevelObjects[i]);
-                    Destroy(tempObject);
+                    if (currPlayerPosZ - generatedLevelObjects[i].transform.position.z > generationDestroyOffcet)
+                    {
+                        GameObject tempObject = generatedLevelObjects[i];
+                        generatedLevelObjects.Remove(generatedLevelObjects[i]);
+                        Destroy(tempObject);
+                    }
                 }
             }
         }
