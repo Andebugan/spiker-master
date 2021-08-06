@@ -34,13 +34,6 @@ public class LevelGeneration : MonoBehaviour
         spawnController.UpdateDifficulty();
         boarderController.UpdateWalls(playerController.GetPlayerTransform().position);
         deathWallScript.UpdateWall();
-
-        /*
-        if (playerController.GetPlayer().isAlive() == false)
-        {
-            Regenerate();
-        }
-        */
     }
 
     public void Regenerate()

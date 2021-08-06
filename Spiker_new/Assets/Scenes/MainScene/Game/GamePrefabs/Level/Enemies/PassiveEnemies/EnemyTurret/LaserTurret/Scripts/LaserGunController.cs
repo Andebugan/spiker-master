@@ -13,6 +13,8 @@ public class LaserGunController : MonoBehaviour
     public float fireTime = 1.0f;
     public float deltaT = 0.01f;
 
+    public float maxDistance = 10.0f;
+
     protected float scaleCoef = 0.0f;
     protected float currentChargeTime = 0.0f;
     protected float currentFireTime = 0.0f;
@@ -55,6 +57,20 @@ public class LaserGunController : MonoBehaviour
             ChargeWeapon();
         if (state == "fire")
             FireWeapon();
+    }
+
+    void CheckPlayerDistance()
+    {
+        Vector3 distance = enemyTurret.GetPlayerController().GetPlayerTransform().position - this.transform.position;
+        if (distance.magnitude < maxDistance)
+        {   
+            laserEffect.DisableBeam();
+            currentFireTime = fireTime;
+            currentChargeTime = chargeTime;
+            SetChargeGlow();
+            state = "idle";
+            rotateTowardsPlayer.enabled = true;
+        }
     }
 
     void CheckPlayerRaycast()

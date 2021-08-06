@@ -48,11 +48,6 @@ public class EnemyTurret : PassiveEnemy
         return inRange;
     }
 
-    public PlayerController GetPlayerController()
-    {
-        return playerController;
-    }
-
     public Vector3 CountPlayerDirection(Vector3 pos)
     {
         Vector3 playerPos = playerController.GetPlayerTransform().position;

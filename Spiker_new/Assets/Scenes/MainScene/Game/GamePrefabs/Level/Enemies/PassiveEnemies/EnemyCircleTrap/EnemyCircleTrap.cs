@@ -51,13 +51,17 @@ public class EnemyCircleTrap : PassiveEnemy
 
     void Update()
     {
-        if (charging && !LeanTween.isTweening(InnerCircle))
+        CheckPlayer();
+        if (active)
         {
-            if (playerIsInside)
+            if (charging && !LeanTween.isTweening(InnerCircle))
             {
-                GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Kill();
+                if (playerIsInside)
+                {
+                    GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Kill();
+                }
+                Detonate();
             }
-            Detonate();
         }
     }
 

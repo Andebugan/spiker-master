@@ -6,7 +6,6 @@ public class Enemy : LevelObject
 {
     public bool alive;
     public bool active;
-
     protected PlayerController playerController;
     void Start()
     {
@@ -25,6 +24,11 @@ public class Enemy : LevelObject
     protected float GetPlayerDistance()
     {
         return Mathf.Abs((playerController.GetPlayerTransform().position - transform.position).magnitude);
+    }
+
+    public PlayerController GetPlayerController()
+    {
+        return playerController;
     }
 
     protected void CheckPlayer()

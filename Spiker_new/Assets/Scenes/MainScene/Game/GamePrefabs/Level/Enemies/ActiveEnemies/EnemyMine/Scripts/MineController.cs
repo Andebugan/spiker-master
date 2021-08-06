@@ -32,6 +32,7 @@ public class MineController : ActiveEnemy
     // Update is called once per frame
     void Update()
     {
+        CheckPlayer();
         if (active)
         {
             CheckInstantExplosion();

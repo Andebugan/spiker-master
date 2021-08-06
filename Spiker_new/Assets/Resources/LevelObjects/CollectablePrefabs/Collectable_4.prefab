@@ -110,6 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRadius: 1
-  difficultyLevel: 3
+  difficultyLevel: 4
   spawnChance: 5
   itemName: Collectable_4
