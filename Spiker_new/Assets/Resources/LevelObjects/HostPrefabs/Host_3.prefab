@@ -192,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRadius: 3.5
   difficultyLevel: 3
-  spawnChance: 80
+  spawnChance: 60
 --- !u!1001 &1702082734171672798
 PrefabInstance:
   m_ObjectHideFlags: 0

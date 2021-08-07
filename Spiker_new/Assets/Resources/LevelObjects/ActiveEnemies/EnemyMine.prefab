@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad379be2d5e1e42abcf4b5c9486b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 1
+  spawnRadius: 3
   difficultyLevel: 4
   spawnChance: 30
   alive: 1
@@ -670,7 +670,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.6
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -723,7 +723,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2

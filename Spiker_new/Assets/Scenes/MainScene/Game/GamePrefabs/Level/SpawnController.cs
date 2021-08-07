@@ -92,7 +92,7 @@ public class SpawnController : MonoBehaviour
 
     protected bool SpawnObject(Vector3 pos, LevelObject levelObject)
     {
-        if (CheckSpawnConditions(pos, levelObject) && levelObject.CheckDifficulty(difficulty))
+        if (CheckSpawnConditions(pos, levelObject))
         {
             if (levelObject.CheckHullChances(hullChance))
             {
@@ -114,6 +114,9 @@ public class SpawnController : MonoBehaviour
         int typeIndex = random.Next(0, levelObjectTypes.Count);
         int itemIndex = random.Next(0, spawningObjectsList[typeIndex].Count);
         bool generatedObject = false;
+
+        if (!spawningObjectsList[typeIndex][itemIndex].CheckDifficulty(difficulty))
+            generatedObject = true;
 
         while (generating && (currGenPosition.z < currPlayerPosZ + generationSpawnOffcet) && !generatedObject)
         {

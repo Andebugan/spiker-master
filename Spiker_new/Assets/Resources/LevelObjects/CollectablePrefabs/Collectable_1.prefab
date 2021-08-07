@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fb9d9fd88ab7f4b9050bf0ccfb0316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 1
+  spawnRadius: 0.5
   difficultyLevel: 1
-  spawnChance: 25
+  spawnChance: 5
   itemName: Collectable_1

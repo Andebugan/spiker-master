@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c453cd0fda837174fa1b1715063af2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 2
+  spawnRadius: 3
   difficultyLevel: 4
   spawnChance: 20
   alive: 1
