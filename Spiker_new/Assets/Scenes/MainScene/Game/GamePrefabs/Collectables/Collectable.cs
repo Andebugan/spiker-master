@@ -9,8 +9,11 @@ public class Collectable : LevelObject
 
     public string itemName = "default name";
 
+    protected PlayerController playerController;
+
     void Start()
     {
+        playerController = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
         this.gameObject.GetComponent<Collider>().isTrigger = true;
     }
     // Check if item is on active scene
@@ -47,5 +50,15 @@ public class Collectable : LevelObject
     public void SetItemName(string name)
     {
         itemName = name;
+    }
+
+    public void IncreaseAmount(int num)
+    {
+        amount += num;
+    }
+     
+    public int GetAmount()
+    {
+        return amount;
     }
 }

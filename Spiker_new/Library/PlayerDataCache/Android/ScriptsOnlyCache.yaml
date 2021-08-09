@@ -6,7 +6,8 @@ ScriptsOnlyBuild:
     - ButtonController
     - CameraController
     - CheckParticleCollision
-    - Collectable
+    - Coin
+    - CoinsText
     - DeathWallScript
     - EnemyCircleTrap
     - EnemyPlayerController
@@ -81,77 +82,79 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11810}
+      Script: {instanceID: 11808}
     - Class: 114
-      Script: {instanceID: 11964}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 11970}
+      Script: {instanceID: 11968}
     - Class: 114
-      Script: {instanceID: 11990}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 12030}
+      Script: {instanceID: 12028}
     - Class: 114
-      Script: {instanceID: 12090}
+      Script: {instanceID: 12088}
     - Class: 114
-      Script: {instanceID: 12242}
+      Script: {instanceID: 12240}
     - Class: 114
-      Script: {instanceID: 12270}
+      Script: {instanceID: 12268}
     - Class: 114
-      Script: {instanceID: 12456}
+      Script: {instanceID: 12454}
     - Class: 114
-      Script: {instanceID: 12478}
+      Script: {instanceID: 12476}
+    - Class: 114
+      Script: {instanceID: 12562}
     - Class: 114
       Script: {instanceID: 12564}
     - Class: 114
-      Script: {instanceID: 12566}
+      Script: {instanceID: 12614}
     - Class: 114
-      Script: {instanceID: 12616}
+      Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12662}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12778}
     - Class: 114
-      Script: {instanceID: 12780}
+      Script: {instanceID: 12832}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12964}
     - Class: 114
-      Script: {instanceID: 12966}
+      Script: {instanceID: 13022}
     - Class: 114
       Script: {instanceID: 13024}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13164}
     - Class: 114
-      Script: {instanceID: 13166}
+      Script: {instanceID: 13248}
     - Class: 114
-      Script: {instanceID: 13250}
+      Script: {instanceID: 13264}
     - Class: 114
-      Script: {instanceID: 13266}
+      Script: {instanceID: 13406}
     - Class: 114
-      Script: {instanceID: 13408}
+      Script: {instanceID: 13514}
     - Class: 114
-      Script: {instanceID: 13516}
+      Script: {instanceID: 13550}
     - Class: 114
-      Script: {instanceID: 13552}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13560}
+      Script: {instanceID: 13730}
     - Class: 114
-      Script: {instanceID: 13732}
+      Script: {instanceID: 13814}
     - Class: 114
-      Script: {instanceID: 13816}
+      Script: {instanceID: 13882}
     - Class: 114
-      Script: {instanceID: 13884}
+      Script: {instanceID: 13912}
     - Class: 114
-      Script: {instanceID: 13914}
+      Script: {instanceID: 13966}
     - Class: 114
-      Script: {instanceID: 13960}
+      Script: {instanceID: 13976}
     - Class: 114
-      Script: {instanceID: 13968}
+      Script: {instanceID: 13984}
     - Class: 114
-      Script: {instanceID: 13978}
+      Script: {instanceID: 14010}
     - Class: 114
-      Script: {instanceID: 13986}
+      Script: {instanceID: 15852}
     - Class: 114
-      Script: {instanceID: 14012}
+      Script: {instanceID: 17820}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -805,6 +808,48 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LaserGunController
+  - hash:
+      serializedVersion: 2
+      Hash: 2e7619000b2c835d6cbc0ca432c379ef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Coin
+  - hash:
+      serializedVersion: 2
+      Hash: 4ce15e99c635d2567873d27549d1f16f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinsText
+  - hash:
+      serializedVersion: 2
+      Hash: 2e7619000b2c835d6cbc0ca432c379ef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Shield
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Stealth
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Turret
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerItem
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Mine
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainScene/Game/GamePrefabs/Level/LevelObstacles/LevelGenerationTestingScene.unity

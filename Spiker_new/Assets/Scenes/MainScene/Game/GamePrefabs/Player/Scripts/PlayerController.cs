@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public void Spawn()
     {
         player.transform.position = spawnCoords;
+        player.reset();
         player.set();
         cameraController.CameraInit();
     }

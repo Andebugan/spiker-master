@@ -106,6 +106,41 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ChangeAmountOfItem(Collectable collectable)
+    {
+        if (collectables.Count != 0)
+        {
+            bool isInPlayer = false;
+            for (int i = 0; i < collectables.Count; i++)
+            {
+                if (collectables[i].GetItemName() == collectable.GetItemName())
+                {
+                    collectables[i].IncreaseAmount(collectable.GetAmount());
+                    collectable.PickUp();
+                    isInPlayer = true;
+                }
+            }
+            if (isInPlayer == false)
+            {
+                AddCollectable(collectable);
+            }
+        }
+        else
+        {
+            AddCollectable(collectable);
+        }
+    }
+
+    public int GetCollectableAmount(string name)
+    {
+        for (int i = 0; i < collectables.Count; i++)
+        {
+            if (collectables[i].GetItemName() == name)
+                return collectables[i].GetAmount();
+        }
+        return 0;
+    }
+
     // Removes collectables with specified name
     public void RemoveCollectable(string name)
     {
@@ -115,15 +150,6 @@ public class Player : MonoBehaviour
             {
                 collectables.Remove(collectables[i]);
             }
-        }
-    }
-
-    void OnTriggerEnter(Collider collider)
-    {
-        if (collider.tag == "Collectable")
-        {    
-            Collectable collectable = collider.gameObject.GetComponent<Collectable>();
-            AddCollectable(collectable);
         }
     }
 
@@ -149,6 +175,11 @@ public class Player : MonoBehaviour
     }
 
     public void kill()
+    {
+        setAlive(false);
+    }
+
+    public void reset()
     {
         setAlive(false);
         ClearCollectables();

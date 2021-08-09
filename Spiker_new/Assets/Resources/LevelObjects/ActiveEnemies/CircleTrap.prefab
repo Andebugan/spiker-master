@@ -215,7 +215,7 @@ MonoBehaviour:
   active: 0
   InnerCircle: {fileID: 378703497292788831}
   InnerCircleBottom: {fileID: 76403552556371142}
-  time: 0.75
+  time: 0.78
 --- !u!136 &378703498183621680
 CapsuleCollider:
   m_ObjectHideFlags: 0
