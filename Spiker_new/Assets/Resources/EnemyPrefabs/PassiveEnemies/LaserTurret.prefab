@@ -14768,6 +14768,7 @@ MonoBehaviour:
   chargeTime: 0.8
   fireTime: 1.5
   deltaT: 1
+  maxDistance: 10
   ChargeGlow: {fileID: 7835411407192335981}
 --- !u!1 &7531698486158633493
 GameObject:
@@ -19786,7 +19787,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 6.53, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.25
