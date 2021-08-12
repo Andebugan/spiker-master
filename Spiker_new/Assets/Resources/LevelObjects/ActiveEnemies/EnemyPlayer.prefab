@@ -1008,6 +1008,7 @@ MonoBehaviour:
   spawnChance: 50
   alive: 1
   active: 1
+  isTargetable: 1
   activationRadius: 10
   minChargeTime: 1
   maxChargeTime: 1

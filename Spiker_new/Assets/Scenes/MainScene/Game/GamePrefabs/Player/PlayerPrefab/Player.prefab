@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4633934870758589544}
   - component: {fileID: 6182604883964001956}
   - component: {fileID: 3416615568003460992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5337356534148439028}
   - component: {fileID: 5337356534148439029}
   - component: {fileID: 5337356534148439034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ArrowSprite
   m_TagString: ArrowSprite
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4836371095488958729}
   - component: {fileID: 2044160424302167834}
   - component: {fileID: 8301808585681418902}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ CapsuleCollider:
   m_Radius: 2
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 50, z: 0}
+  m_Center: {x: 0, y: 10, z: 3}
 --- !u!136 &2044160424302167834
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5434792721052763737}
   - component: {fileID: 5434792721052763738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}

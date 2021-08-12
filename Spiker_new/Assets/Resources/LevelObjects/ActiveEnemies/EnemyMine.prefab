@@ -259,6 +259,7 @@ MonoBehaviour:
   spawnChance: 70
   alive: 1
   active: 1
+  isTargetable: 1
   endSpeed: 3
   endRotation: 1
   activationRadius: 7

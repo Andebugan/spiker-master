@@ -17,14 +17,17 @@ public class ShieldUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].SetActive(false);
+        }
+
         shield = playerController.GetPlayer().GetComponentInChildren<Shield>();
         if (shield != null)
         {
             for (int i = 0; i < sprites.Length; i++)
             {
-                if (i > shield.amount - 1)
-                    sprites[i].SetActive(false);
-                else
+                if (i < shield.amount)
                     sprites[i].SetActive(true);
             }
         }

@@ -13,7 +13,6 @@ public class KillOnCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if (other.tag == "Player")
         {
             playerController.Kill();

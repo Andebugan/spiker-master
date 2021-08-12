@@ -6,6 +6,7 @@ public class Enemy : LevelObject
 {
     public bool alive;
     public bool active;
+    public bool isTargetable = false;
     protected PlayerController playerController;
     void Start()
     {
