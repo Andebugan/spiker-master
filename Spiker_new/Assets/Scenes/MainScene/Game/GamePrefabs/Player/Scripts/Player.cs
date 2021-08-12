@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     public bool active = false;
     public bool visible = false;
     public bool alive = true;
+    public bool invulnerable = false;
+
+    public float maxVelocity = 5.0f;
 
     protected List<Collectable> collectables = new List<Collectable>();
     private PlayerMovementSystem movementSystem;
@@ -96,12 +99,20 @@ public class Player : MonoBehaviour
             }
             
             if (!repeat)
+            {
                 collectables.Add(collectable);
+                collectable.transform.SetParent(this.transform);
+                collectable.transform.position = this.transform.position;
+                collectable.SetOnPlayer(true);
+            }
             collectable.PickUp();
         }
         else
         {
             collectable.PickUp();
+            collectable.transform.SetParent(this.transform);
+            collectable.transform.position = this.transform.position;
+            collectable.SetOnPlayer(true);
             collectables.Add(collectable);
         }
     }
@@ -148,7 +159,12 @@ public class Player : MonoBehaviour
         {
             if (collectables[i].GetItemName() == name)
             {
-                collectables.Remove(collectables[i]);
+                Collectable temp = collectables[i];
+                if (temp != null)
+                {
+                    collectables.Remove(collectables[i]);
+                    Destroy(temp.gameObject);
+                }
             }
         }
     }
@@ -183,5 +199,14 @@ public class Player : MonoBehaviour
     {
         setAlive(false);
         ClearCollectables();
+    }
+
+    void FixedUpdate()
+    {
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+        if (Mathf.Abs(rb.velocity.magnitude) > maxVelocity)
+        {
+            rb.velocity = rb.velocity.normalized * maxVelocity;
+        }
     }
 }

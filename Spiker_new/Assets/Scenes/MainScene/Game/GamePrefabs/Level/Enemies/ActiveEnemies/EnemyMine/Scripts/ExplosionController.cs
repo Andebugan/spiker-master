@@ -4,24 +4,43 @@ using UnityEngine;
 
 public class ExplosionController : MonoBehaviour
 {
-    ParticleSystem explosion;
-    protected bool exploded = false;
+    public float explosionTime = 1.0f;
+    public float explosionSize = 2.0f;
+    public float explosionKoef = 10.0f;
+    protected string state = "idle";
+    protected bool hitCheck = false;
+    protected PlayerController playerController;
+
     void Start()
     {
-        explosion = GetComponent<ParticleSystem>();
+        playerController = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
     }
 
     public void Explode()
     {
-        if (!exploded)
+        if (state == "idle")
         {
-            exploded = true;
-            explosion.Play();
+            LeanTween.scale(this.gameObject, new Vector3(1, 1, 1) * explosionSize, explosionTime / explosionKoef);
+            state = "fase_1";
+        }
+        else if (state == "fase_1" && !LeanTween.isTweening(this.gameObject))
+        {
+            if ((playerController.GetPlayerTransform().position - this.transform.position).magnitude < explosionSize/2 && !hitCheck)
+            {
+                playerController.Kill();
+                hitCheck = true;
+            }
+            LeanTween.scale(this.gameObject, new Vector3(0, 0, 0), explosionTime);
+            state = "fase_2";
+        }
+        else if (state == "fase_2" && !LeanTween.isTweening(this.gameObject))
+        {
+            state = "exploded";
         }
     }
 
     public bool CheckExplosion()
     {
-        return !explosion.isPlaying && exploded;
+        return state == "exploded";
     }
 }

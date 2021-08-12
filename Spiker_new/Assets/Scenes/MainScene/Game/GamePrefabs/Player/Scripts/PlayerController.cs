@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Player player;
     private CameraController cameraController;
     public Vector3 spawnCoords = new Vector3(0.0f, 0.0f, 0.0f);
+    protected List<PlayerItem> subscribedItems = new List<PlayerItem>();
 
     void Start()
     {
@@ -25,16 +27,39 @@ public class PlayerController : MonoBehaviour
         player.reset();
         player.set();
         cameraController.CameraInit();
+        ClearSubscriptions();
     }
 
     public void Ressurect()
     {
         player.set();
+        ClearSubscriptions();
+    }
+
+    public void ClearSubscriptions()
+    {
+        subscribedItems.Clear();
+    }
+
+    public void Subscribe(PlayerItem playerItem)
+    {
+        subscribedItems.Add(playerItem);
     }
 
     public void Kill()
     {
-        player.kill();
+        if (!player.invulnerable)
+            player.kill();
+        else
+        {
+            for (int i = 0; i < subscribedItems.Count; i++)
+            {
+                if (subscribedItems[i] != null)
+                {
+                    subscribedItems[i].OnPlayerKill();
+                }
+            }
+        }
     }
 
     public Transform GetPlayerTransform()

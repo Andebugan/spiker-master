@@ -868,12 +868,11 @@ GameObject:
   - component: {fileID: 7742945458966614025}
   - component: {fileID: 7742945458966614026}
   - component: {fileID: 7742945458966614035}
-  - component: {fileID: 7742945458966614031}
   - component: {fileID: 7742945458966614030}
   - component: {fileID: 7742945458966614029}
   m_Layer: 0
   m_Name: EnemyPlayer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,7 +959,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: ec691f953b19207419aec537fb94ee0f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.62
+  m_Radius: 0.65
   m_Height: 2.1
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -980,20 +979,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!136 &7742945458966614031
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7742945458966614027}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.65
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &7742945458966614030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,12 +1005,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRadius: 3
   difficultyLevel: 4
-  spawnChance: 20
+  spawnChance: 50
   alive: 1
   active: 1
   activationRadius: 10
   minChargeTime: 1
   maxChargeTime: 1
   maxJumpForce: 8
-  minJumpForce: 5
+  minJumpForce: 6
   deltaT: 1

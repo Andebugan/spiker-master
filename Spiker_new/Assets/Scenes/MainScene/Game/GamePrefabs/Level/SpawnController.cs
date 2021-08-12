@@ -101,7 +101,7 @@ public class SpawnController : MonoBehaviour
             else
             {
                 GameObject hullObject = Instantiate(hull.gameObject, pos, Quaternion.identity);
-                hullObject.GetComponent<LevelObject>().spawnRadius = levelObject.spawnRadius;
+                hullObject.GetComponent<LevelObject>().spawnRadius = random.Next(0, Mathf.RoundToInt(levelObject.spawnRadius) + 1);
                 generatedLevelObjects.Add(hullObject);
             }
             return true;

@@ -4,28 +4,39 @@ using UnityEngine;
 
 public class Collectable : LevelObject
 {
-    protected int amount = 1;
-    protected bool onScene = true;
+    public bool hasMaxAmount = true;
+    public int amount = 1;
+    public int maxAmount = 1;
+    protected bool onPlayer = false;
 
     public string itemName = "default name";
 
     protected PlayerController playerController;
 
-    void Start()
+    public void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>();
         this.gameObject.GetComponent<Collider>().isTrigger = true;
     }
-    // Check if item is on active scene
-    public bool IsOnScene()
+
+    public PlayerController GetPlayerController()
     {
-        return onScene;
+        return playerController;
+    }
+    
+    // Check if item is on active scene
+    public bool IsOnPlayer()
+    {
+        return onPlayer;
     }
 
-    // Actions if item is picked up by player
+    public void SetOnPlayer(bool isOnPlayer)
+    {
+        onPlayer = isOnPlayer;
+    }
+
     public void PickUp()
     {
-        onScene = false;
         this.gameObject.GetComponent<Renderer>().enabled = false;
         this.gameObject.GetComponent<Collider>().enabled = false;
     }
@@ -52,12 +63,17 @@ public class Collectable : LevelObject
         itemName = name;
     }
 
-    public void IncreaseAmount(int num)
+    virtual public void IncreaseAmount(int num)
     {
-        amount += num;
+        if (amount + num >= maxAmount && hasMaxAmount)
+        {
+            amount = maxAmount;
+        }
+        else
+            amount += num;
     }
      
-    public int GetAmount()
+    virtual public int GetAmount()
     {
         return amount;
     }

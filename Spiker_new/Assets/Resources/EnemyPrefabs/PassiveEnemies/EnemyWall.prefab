@@ -494,10 +494,9 @@ GameObject:
   - component: {fileID: 5917789659620868262}
   - component: {fileID: -1449424535017863379}
   - component: {fileID: 8203200813798057227}
-  - component: {fileID: 1475615522086234741}
   m_Layer: 0
   m_Name: EnemyWall
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -585,8 +584,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 2.1062443}
+  m_Center: {x: 0, y: 0, z: 0.5531217}
 --- !u!114 &-1449424535017863379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,19 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08661b7194588ea4e956d3a198800eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1475615522086234741
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5917789659620868261}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.0809503}
-  m_Center: {x: 0, y: 0, z: 0.5404747}
 --- !u!1 &6538096108919275058
 GameObject:
   m_ObjectHideFlags: 0

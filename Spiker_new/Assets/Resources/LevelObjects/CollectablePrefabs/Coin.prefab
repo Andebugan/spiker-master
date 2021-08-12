@@ -111,5 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRadius: 0.7
   difficultyLevel: 1
-  spawnChance: 15
+  spawnChance: 8
+  hasMaxAmount: 0
+  amount: 1
+  maxAmount: 1
   itemName: coin

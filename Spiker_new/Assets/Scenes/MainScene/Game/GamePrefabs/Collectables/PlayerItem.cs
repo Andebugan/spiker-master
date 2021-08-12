@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    protected GameObject instance;
+    public void CreatePlayerItem(Transform playerTransform)
     {
-        
+        instance = Instantiate(this.gameObject, playerTransform);
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void OnPlayerKill()
     {
         
     }

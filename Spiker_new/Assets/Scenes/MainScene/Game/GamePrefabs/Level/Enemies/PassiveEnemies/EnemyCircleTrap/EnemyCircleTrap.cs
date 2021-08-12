@@ -10,6 +10,7 @@ public class EnemyCircleTrap : PassiveEnemy
     protected Vector3 originalScale;
     protected bool charging = false;
     protected bool playerIsInside = false;
+    protected bool hitCheck = false;
 
     void Start()
     {
@@ -56,9 +57,10 @@ public class EnemyCircleTrap : PassiveEnemy
         {
             if (charging && !LeanTween.isTweening(InnerCircle))
             {
-                if (playerIsInside)
+                if (playerIsInside && !hitCheck)
                 {
                     GameObject.FindGameObjectWithTag("PlayerController").GetComponent<PlayerController>().Kill();
+                    hitCheck = true;
                 }
                 Detonate();
             }

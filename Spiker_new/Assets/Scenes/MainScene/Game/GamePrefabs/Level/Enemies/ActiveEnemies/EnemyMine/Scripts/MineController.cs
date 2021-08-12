@@ -43,6 +43,10 @@ public class MineController : ActiveEnemy
             if (state == "detonation")
                 Detonate();
         }
+        else
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
     }
 
     void CheckPlayerDistance()
