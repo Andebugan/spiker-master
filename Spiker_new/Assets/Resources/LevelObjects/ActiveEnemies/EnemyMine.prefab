@@ -265,7 +265,7 @@ MonoBehaviour:
   activationRadius: 7
   detonationTime: 4
   deltaT: 1
-  instantDetonationRadius: 2
+  instantDetonationRadius: 1
 --- !u!1 &663362808657354371
 GameObject:
   m_ObjectHideFlags: 0

@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRadius: 1
   difficultyLevel: 1
-  spawnChance: 3
+  spawnChance: 4
   hasMaxAmount: 1
   amount: 1
   maxAmount: 3

@@ -18,5 +18,4 @@ public class KillOnCollision : MonoBehaviour
             playerController.Kill();
         }
     }
-
 }

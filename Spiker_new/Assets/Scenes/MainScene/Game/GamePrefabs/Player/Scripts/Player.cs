@@ -176,9 +176,18 @@ public class Player : MonoBehaviour
             for (int i = 0; i < collectables.Count; i++)
             {
                 if (collectables[i] != null)
+                {
                     Destroy(collectables[i].gameObject);
+                }
             }
         }
+
+        PlayerItem[] playerItems = GetComponentsInChildren<PlayerItem>();
+        for (int i = 0; i < playerItems.Length; i++)
+        {
+            Destroy(playerItems[i].gameObject);
+        }
+
         collectables.Clear();
     }
 

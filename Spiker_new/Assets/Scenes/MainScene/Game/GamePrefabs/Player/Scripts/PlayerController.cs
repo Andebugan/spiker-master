@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         player.reset();
         player.set();
         cameraController.CameraInit();
+        player.ClearCollectables();
         ClearSubscriptions();
     }
 
@@ -49,7 +50,9 @@ public class PlayerController : MonoBehaviour
     public void Kill()
     {
         if (!player.invulnerable)
+        {
             player.kill();
+        }
         else
         {
             for (int i = 0; i < subscribedItems.Count; i++)

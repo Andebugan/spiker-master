@@ -110,9 +110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnRadius: 1
   difficultyLevel: 1
-  spawnChance: 2
+  spawnChance: 3
   hasMaxAmount: 1
-  amount: 15
+  amount: 5
   maxAmount: 15
   itemName: turret
   turretItem: {fileID: 2567223905115172395, guid: 76fdf1a7a9d0ed947aa80a2771a4c1e6, type: 3}

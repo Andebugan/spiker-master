@@ -216,7 +216,7 @@ MonoBehaviour:
   visible: 0
   alive: 1
   invulnerable: 0
-  maxVelocity: 16
+  maxVelocity: 10
 --- !u!114 &5434792721027470887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ CapsuleCollider:
   m_Radius: 2
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 10, z: 3}
+  m_Center: {x: 0, y: 7, z: 1}
 --- !u!136 &2044160424302167834
 CapsuleCollider:
   m_ObjectHideFlags: 0

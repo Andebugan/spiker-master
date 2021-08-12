@@ -281,8 +281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firingSystem: {fileID: 3501761335993102622}
-  delay: 0.01
-  deltaT: 0.01
+  delay: 0.007
+  deltaT: 0.03
 --- !u!1 &4014775373404636858
 GameObject:
   m_ObjectHideFlags: 0
