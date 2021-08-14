@@ -12,8 +12,10 @@ public class SpawnController : MonoBehaviour
     public float generationSpawnOffcet = 15.0f;
     public float generationDestroyOffcet = 10.0f;
     protected float difficulty = 1.0f;
+    protected float maxDifficulty = 1.0f;
     protected System.Random random = new System.Random();
     protected List<List<LevelObject>> spawningObjectsList = new List<List<LevelObject>>();
+    protected List<List<List<LevelObject>>> spawningObjectsListByDifficutly = new List<List<List<LevelObject>>>();
     protected List<GameObject> generatedLevelObjects = new List<GameObject>();
     public bool generating = false;
     protected Vector3 currGenPosition;
@@ -29,8 +31,31 @@ public class SpawnController : MonoBehaviour
         levelObjectPrefabs = Resources.LoadAll<LevelObject>("LevelObjects");
         halfCorridorWidth = this.GetComponent<LevelGeneration>().halfCorridorWidth;
         levelGeneration = GetComponent<LevelGeneration>();
-        FormLevelObjectTypesList();
-        FormSpawningObjectsList();
+        FormDifficultyList();
+    }
+
+    void FormDifficultyList()
+    {
+        GetMaxDifficutly();
+        for (int i = 1; i <= Mathf.RoundToInt(maxDifficulty); i++)
+        {
+            spawningObjectsList = new List<List<LevelObject>>();
+            FormLevelObjectTypesList(Mathf.RoundToInt(i));
+            FormSpawningObjectsList(Mathf.RoundToInt(i));
+            spawningObjectsListByDifficutly.Add(spawningObjectsList);
+        }
+        spawningObjectsList = spawningObjectsListByDifficutly[Mathf.RoundToInt(difficulty - 1)];
+    }
+
+    void GetMaxDifficutly()
+    {
+        foreach (LevelObject levelObject in levelObjectPrefabs)
+        {
+            if (levelObject.difficultyLevel > maxDifficulty)
+            {
+                maxDifficulty = levelObject.difficultyLevel;
+            }
+        }
     }
 
     public void SetStartGenPosition(float halfCorridorWidth)
@@ -47,20 +72,20 @@ public class SpawnController : MonoBehaviour
         generatedLevelObjects.Clear();
     }
 
-    void FormLevelObjectTypesList()
+    void FormLevelObjectTypesList(int difficulty)
     {
         foreach (LevelObject levelObject in levelObjectPrefabs)
         {
             Type type;
             type = levelObject.GetType();
-            if (!levelObjectTypes.Contains(type))
+            if (!levelObjectTypes.Contains(type) && levelObject.difficultyLevel <= difficulty)
             {
                 levelObjectTypes.Add(type);
             }
         }
     }
 
-    void FormSpawningObjectsList()
+    void FormSpawningObjectsList(int difficulty)
     {
         for (int i = 0; i < levelObjectTypes.Count; i++)
         {
@@ -68,12 +93,13 @@ public class SpawnController : MonoBehaviour
             foreach (LevelObject levelObject in levelObjectPrefabs)
             {
                 Type type = levelObject.GetType();
-                if (type == levelObjectTypes[i])
+                if (type == levelObjectTypes[i] && levelObject.difficultyLevel <= difficulty)
                 {
                     objectList.Add(levelObject);
                 }
             }
-            spawningObjectsList.Add(objectList);
+            if (objectList.Count != 0)
+                spawningObjectsList.Add(objectList);
         }
     }
 
@@ -111,12 +137,9 @@ public class SpawnController : MonoBehaviour
 
     public void Generate(float halfCorridorWidth, float currPlayerPosZ)
     {
-        int typeIndex = random.Next(0, levelObjectTypes.Count);
+        int typeIndex = random.Next(0, spawningObjectsList.Count);
         int itemIndex = random.Next(0, spawningObjectsList[typeIndex].Count);
         bool generatedObject = false;
-
-        if (!spawningObjectsList[typeIndex][itemIndex].CheckDifficulty(difficulty))
-            generatedObject = true;
 
         while (generating && (currGenPosition.z < currPlayerPosZ + generationSpawnOffcet) && !generatedObject)
         {
@@ -152,7 +175,13 @@ public class SpawnController : MonoBehaviour
 
     public void UpdateDifficulty()
     {
-        difficulty = Mathf.CeilToInt(levelGeneration.GetPlayerController().GetPlayerTransform().position.z / difficultyStep);
+        int new_difficulty = Mathf.CeilToInt(levelGeneration.GetPlayerController().GetPlayerTransform().position.z / difficultyStep);
+        if (difficulty < new_difficulty)
+        {
+            difficulty = new_difficulty;
+            Debug.Log(difficulty);
+            spawningObjectsList = spawningObjectsListByDifficutly[Mathf.RoundToInt(difficulty - 1)];
+        }
     }
 
     public float GetDifficulty()

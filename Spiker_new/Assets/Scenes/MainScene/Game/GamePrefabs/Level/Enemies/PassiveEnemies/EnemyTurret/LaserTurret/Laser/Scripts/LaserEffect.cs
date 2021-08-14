@@ -60,7 +60,7 @@ public class LaserEffect : MonoBehaviour
     {
         RaycastHit hit;
 
-        Vector3 direction = enemyTurret.GetPlayerDir();
+        Vector3 direction = transform.forward;
 
         if (Physics.Raycast(transform.position, direction, out hit))
         {

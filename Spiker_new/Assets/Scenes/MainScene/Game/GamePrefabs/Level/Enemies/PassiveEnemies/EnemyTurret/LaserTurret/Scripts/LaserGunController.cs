@@ -13,7 +13,9 @@ public class LaserGunController : MonoBehaviour
     public float fireTime = 1.0f;
     public float deltaT = 0.01f;
 
-    public float maxDistance = 10.0f;
+    public float targetBeamWidth = 0.05f;
+
+    public float maxDistance = 8.0f;
 
     protected float scaleCoef = 0.0f;
     protected float currentChargeTime = 0.0f;
@@ -22,8 +24,8 @@ public class LaserGunController : MonoBehaviour
     
     protected EnemyTurret enemyTurret;
     protected LaserEffect laserEffect;
-    protected RotateTowardsPlayer rotateTowardsPlayer;
     public ParticleSystem ChargeGlow;
+    public LineRenderer chargeBeam;
     protected string state = "idle";
 
     void Start()
@@ -32,7 +34,6 @@ public class LaserGunController : MonoBehaviour
         currentChargeTime = chargeTime;
         laserEffect = GetComponentInChildren<LaserEffect>();
         enemyTurret = GetComponentInParent<EnemyTurret>();
-        rotateTowardsPlayer = GetComponentInParent<RotateTowardsPlayer>();
     }
 
     void SetChargeGlow()
@@ -40,6 +41,8 @@ public class LaserGunController : MonoBehaviour
         var emission = ChargeGlow.emission;
         emission.enabled = false;
         ChargeGlow.transform.localScale = new Vector3(0, 0, 0);
+        chargeBeam.startWidth = 0;
+        chargeBeam.endWidth = 0;
     }
 
     void StartCharging()
@@ -69,7 +72,6 @@ public class LaserGunController : MonoBehaviour
             currentChargeTime = chargeTime;
             SetChargeGlow();
             state = "idle";
-            rotateTowardsPlayer.enabled = true;
         }
     }
 
@@ -86,15 +88,34 @@ public class LaserGunController : MonoBehaviour
         }
     }
 
+    void UpdateTargetBeamPosition()
+    {
+        RaycastHit hit;
+        Vector3 pos;
+        Vector3 direction = transform.forward;
+
+        if (Physics.Raycast(transform.position, direction, out hit))
+        {
+            pos = hit.point;
+        }
+        else
+        {
+            pos = transform.position + direction * laserEffect.maxDistance;
+        }
+        Vector3 distance = transform.position - pos;
+        chargeBeam.SetPosition(1,  new Vector3(distance.magnitude, 0, 0) * 1.5f);
+    }
+
     void ChargeWeapon()
     {
         if (currentChargeTime > 0)
         {
             if (chargeTime - currentChargeTime != 0)
                 scaleCoef = (chargeTime - currentChargeTime)/chargeTime;
-            if (currentChargeTime < chargeTime / 2)
-                rotateTowardsPlayer.enabled = false;
+            UpdateTargetBeamPosition();
             ChargeGlow.gameObject.transform.localScale = new Vector3(scaleCoef, scaleCoef, scaleCoef);
+            chargeBeam.startWidth = scaleCoef * targetBeamWidth;
+            chargeBeam.endWidth = scaleCoef * targetBeamWidth;
             currentChargeTime -= Time.deltaTime * deltaT;
         }
         else
@@ -102,36 +123,27 @@ public class LaserGunController : MonoBehaviour
             state = "fire";
             currentChargeTime = chargeTime;
             laserEffect.EnableBeam();
+            chargeBeam.startWidth = 0;
+            chargeBeam.endWidth = 0;
         }
     }
 
     void FireWeapon()
     {
-        if (currentFireTime > 0)
+        if (currentFireTime > 0 && enemyTurret.IsInRange() && enemyTurret.GetPlayerController().GetPlayer().alive)
         {
             currentFireTime -= Time.deltaTime * deltaT;
             if (currentFireTime < fireTime / 10)
             {      
                 laserEffect.DisableBeam();
             }
-            else
-            {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, enemyTurret.attackRadius))
-                {
-                    if (hit.collider.tag == "Player" && enemyTurret.active)
-                    {
-                        enemyTurret.GetPlayerController().Kill();
-                    }
-                }
-            }
         }
         else
         {
+            laserEffect.DisableBeam();
             currentFireTime = fireTime;
             SetChargeGlow();
             state = "idle";
-            rotateTowardsPlayer.enabled = true;
         }
     }
 }
